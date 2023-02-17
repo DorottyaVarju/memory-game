@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+body {
+  background-image: linear-gradient(to bottom right, #989795, #dddcda);
+}
+
+/*menu*/
+
+.menu {
+  padding: 20px 0px 0px;
+  float: left;
+  margin: 0px 2%;
+  width: 20%;
+}
+
+li {
+  list-style-type: none;
+  margin-bottom: 50px;
+  background-color: #ffffff;
+  font-size: 1vw;
+  transition: all 0.5s ease;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+li:hover {
+  background-color: #878684;
+  color: white;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+span {
+  font-family: 'Mistral', cursive;
+  font-size: 1.8vw;
+  text-transform: capitalize;
+  font-weight: normal;
+}
+
+.sizeB,
+.sizeC,
+.sizeF,
+.sizeP,
+.sizeA,
+.sizeT {
+  display: none;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+  border-radius: 20px;
+}
+
+/*hamburger menu*/
+
+a.icon {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: black;
+  padding: 14px 16px;
+  font-size: 17px;
+}
+
+a.icon:hover {
+  color: white;
+  cursor: pointer;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.6); /* Black w/ opacity */
+}
+
+.modal-content {
+  background-color: transparent;
+  margin: 0px auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: none;
+  width: 80%;
+}
+
+.close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 2.5% 5%;
+  font-size: 32px;
+  font-weight: bold;
+  color: white;
+}
+
+.close:hover,
+.close:focus {
+  color: #989795;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.burgerMenuItems {
+  text-align: center;
+}
+
+.burgerMenuItems li:first-child {
+  margin-top: 15%;
+}
+
+/*playing area*/
+
+.playingArea {
+  width: 80%;
+  min-height: 800px;
+  margin-left: 30%;
+}
+
+.row {
+  padding-top: 3%;
+}
+
+.scene {
+  display: inline-block;
+  perspective: 600px;
+}
+
+.card {
+  background-color: lightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
+  border-radius: 15px;
+  position: relative;
+  width: 9.5vw;
+  height: 9.5vw;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 0.65s;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card__face {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card__face--back {
+  background: lightblue;
+  transform: rotateY(180deg);
+}
+
+.box {
+  background: lightblue;
+  height: 9.5vw;
+  width: 9.5vw;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.images {
+  border-radius: 15px;
+}
+
+@media only screen and (max-width: 992px) {
+  a.icon {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  span {
+    font-size: 2.8vw;
+  }
+
+  li {
+    font-size: 2vw;
+    padding: 2.5% 0px;
+  }
+
+  .playingArea {
+    margin: 0px auto;
+    margin-top: 15% !important;
+    margin-left: 20% !important;
+  }
+
+  .card,
+  .box,
+  .images {
+    border-radius: 5px;
+  }
+}
