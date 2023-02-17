@@ -21,9 +21,7 @@ const sizeP = Array.from(document.getElementsByClassName("sizeP"));
 const sizeA = Array.from(document.getElementsByClassName("sizeA"));
 const sizeT = Array.from(document.getElementsByClassName("sizeT"));
 
-coffee.addEventListener("click", function () {
-  disappear(sizeC);
-});
+const container = document.getElementsByClassName("container")[1];
 
 /*put into the "numbers" array the numbers between 0 and the given size in a random order*/
 
@@ -39,8 +37,6 @@ function randomizeNumbers(size) {
 
 /*placing the cards with the selected theme in a random order, when the user clicks on a theme
 when the user picks a theme from the burger menu, let the "modalmenu" disappear*/
-
-const container = document.getElementsByClassName("container")[1];
 
 function putCards(topic, size) {
   randomizeNumbers(size);
@@ -89,7 +85,7 @@ function putCards(topic, size) {
   }
 }
 
-function deleteOtherCards() {
+function deleteCards() {
   const images = document.getElementsByClassName("images");
   const row = document.getElementsByClassName("row");
   const scene = document.getElementsByClassName("scene");
@@ -112,33 +108,6 @@ function deleteOtherCards() {
   }
 }
 
-sizeC[0].onclick = function () {
-  disappear(sizeC);
-  deleteOtherCards();
-  putCards("coffee", 12);
-  findingPairs();
-};
-
-sizeC[1].onclick = function () {
-  disappear(sizeC);
-  deleteOtherCards();
-  putCards("coffee", 16);
-  findingPairs();
-};
-
-sizeC[2].onclick = function () {
-  disappear(sizeC);
-  deleteOtherCards();
-  putCards("coffee", 20);
-  findingPairs();
-};
-
-coffeeBurger.onclick = function () {
-  document.getElementById("myModal").style.display = "none";
-  deleteOtherCards();
-  putCards("coffee");
-};
-
 function disappear(size) {
   size.forEach((element) => {
     if (element.style.display == "none") {
@@ -149,158 +118,155 @@ function disappear(size) {
   });
 }
 
+let size;
+
+sizeC.forEach((element) => {
+  element.addEventListener("click", function () {
+    switch(element) {
+      case sizeC[0]: size=12; break;
+      case sizeC[1]: size=16; break;
+      case sizeC[2]: size=20; break;
+      case sizeC[3]: size=24; break;
+    }
+    disappear(sizeC);
+    deleteCards();
+    putCards("coffee", size);
+    findingPairs();
+  });
+});
+
+sizeB.forEach((element) => {
+  element.addEventListener("click", function () {
+    switch(element) {
+      case sizeB[0]: size=12; break;
+      case sizeB[1]: size=16; break;
+      case sizeB[2]: size=20; break;
+      case sizeB[3]: size=24; break;
+    }
+    disappear(sizeB);
+    deleteCards();
+    putCards("building", size);
+    findingPairs();
+  });
+});
+
+sizeF.forEach((element) => {
+  element.addEventListener("click", function () {
+    switch(element) {
+      case sizeF[0]: size=12; break;
+      case sizeF[1]: size=16; break;
+      case sizeF[2]: size=20; break;
+      case sizeF[3]: size=24; break;
+    }
+    disappear(sizeF);
+    deleteCards();
+    putCards("fruit", size);
+    findingPairs();
+  });
+});
+
+sizeP.forEach((element) => {
+  element.addEventListener("click", function () {
+    switch(element) {
+      case sizeP[0]: size=12; break;
+      case sizeP[1]: size=16; break;
+      case sizeP[2]: size=20; break;
+      case sizeP[3]: size=24; break;
+    }
+    disappear(sizeP);
+    deleteCards();
+    putCards("plant", size);
+    findingPairs();
+  });
+});
+
+sizeA.forEach((element) => {
+  element.addEventListener("click", function () {
+    switch(element) {
+      case sizeA[0]: size=12; break;
+      case sizeA[1]: size=16; break;
+      case sizeA[2]: size=20; break;
+      case sizeA[3]: size=24; break;
+    }
+    disappear(sizeA);
+    deleteCards();
+    putCards("animal", size);
+    findingPairs();
+  });
+});
+
+sizeT.forEach((element) => {
+  element.addEventListener("click", function () {
+    switch(element) {
+      case sizeT[0]: size=12; break;
+      case sizeT[1]: size=16; break;
+      case sizeT[2]: size=20; break;
+      case sizeT[3]: size=24; break;
+    }
+    disappear(sizeT);
+    deleteCards();
+    putCards("travel", size);
+    findingPairs();
+  });
+});
+
+coffeeBurger.onclick = function () {
+  document.getElementById("myModal").style.display = "none";
+  deleteCards();
+  putCards("coffee");
+};
+
+coffee.addEventListener("click", function () {
+  disappear(sizeC);
+});
+
 building.addEventListener("click", function () {
   disappear(sizeB);
 });
-
-sizeB[0].onclick = function () {
-  disappear(sizeB);
-  deleteOtherCards();
-  putCards("building", 12);
-  findingPairs();
-};
-
-sizeB[1].onclick = function () {
-  disappear(sizeB);
-  deleteOtherCards();
-  putCards("building", 16);
-  findingPairs();
-};
-
-sizeB[2].onclick = function () {
-  disappear(sizeB);
-  deleteOtherCards();
-  putCards("building", 20);
-  findingPairs();
-};
-
-buildingBurger.onclick = function () {
-  document.getElementById("myModal").style.display = "none";
-  deleteOtherCards();
-  putCards("building");
-};
 
 fruit.addEventListener("click", function () {
   disappear(sizeF);
 });
 
-sizeF[0].onclick = function () {
-  disappear(sizeF);
-  deleteOtherCards();
-  putCards("fruit", 12);
-  findingPairs();
-};
-
-sizeF[1].onclick = function () {
-  disappear(sizeF);
-  deleteOtherCards();
-  putCards("fruit", 16);
-  findingPairs();
-};
-
-sizeF[2].onclick = function () {
-  disappear(sizeF);
-  deleteOtherCards();
-  putCards("fruit", 20);
-  findingPairs();
-};
-
-fruitBurger.onclick = function () {
-  document.getElementById("myModal").style.display = "none";
-  deleteOtherCards();
-  putCards("fruit");
-};
-
 plant.addEventListener("click", function () {
   disappear(sizeP);
 });
-
-sizeP[0].onclick = function () {
-  disappear(sizeP);
-  deleteOtherCards();
-  putCards("plant", 12);
-  findingPairs();
-};
-
-sizeP[1].onclick = function () {
-  disappear(sizeP);
-  deleteOtherCards();
-  putCards("plant", 16);
-  findingPairs();
-};
-
-sizeP[2].onclick = function () {
-  disappear(sizeP);
-  deleteOtherCards();
-  putCards("plant", 20);
-  findingPairs();
-};
-
-plantBurger.onclick = function () {
-  document.getElementById("myModal").style.display = "none";
-  deleteOtherCards();
-  putCards("plant");
-};
 
 animal.addEventListener("click", function () {
   disappear(sizeA);
 });
 
-sizeA[0].onclick = function () {
-  disappear(sizeA);
-  deleteOtherCards();
-  putCards("animal", 12);
-  findingPairs();
-};
-
-sizeA[1].onclick = function () {
-  disappear(sizeA);
-  deleteOtherCards();
-  putCards("animal", 16);
-  findingPairs();
-};
-
-sizeA[2].onclick = function () {
-  disappear(sizeA);
-  deleteOtherCards();
-  putCards("animal", 20);
-  findingPairs();
-};
-
-animalBurger.onclick = function () {
-  document.getElementById("myModal").style.display = "none";
-  deleteOtherCards();
-  putCards("animal");
-};
-
 travel.addEventListener("click", function () {
   disappear(sizeT);
 });
 
-sizeT[0].onclick = function () {
-  disappear(sizeT);
-  deleteOtherCards();
-  putCards("travel", 12);
-  findingPairs();
+buildingBurger.onclick = function () {
+  document.getElementById("myModal").style.display = "none";
+  deleteCards();
+  putCards("building");
 };
 
-sizeT[1].onclick = function () {
-  disappear(sizeT);
-  deleteOtherCards();
-  putCards("travel", 16);
-  findingPairs();
+fruitBurger.onclick = function () {
+  document.getElementById("myModal").style.display = "none";
+  deleteCards();
+  putCards("fruit");
 };
 
-sizeT[2].onclick = function () {
-  disappear(sizeT);
-  deleteOtherCards();
-  putCards("travel", 20);
-  findingPairs();
+plantBurger.onclick = function () {
+  document.getElementById("myModal").style.display = "none";
+  deleteCards();
+  putCards("plant");
+};
+
+animalBurger.onclick = function () {
+  document.getElementById("myModal").style.display = "none";
+  deleteCards();
+  putCards("animal");
 };
 
 travelBurger.onclick = function () {
   document.getElementById("myModal").style.display = "none";
-  deleteOtherCards();
+  deleteCards();
   putCards("travel");
 };
 
@@ -310,13 +276,13 @@ function findingPairs() {
   let allCardsActive = true;
 
   [...cards].forEach((card) => {
-      card.addEventListener("click", function () {
-        if(allCardsActive == true) {
+    card.addEventListener("click", function () {
+      if (allCardsActive == true) {
         numberOfClickedCards++;
         card.classList.toggle("is-flipped");
         Pairs();
-        }
-      });
+      }
+    });
   });
 
   /* when a user finds a pair, let the cards disappear
@@ -338,7 +304,8 @@ function findingPairs() {
 
         if (srcOfImgs[0] != srcOfImgs[1]) {
           setTimeout(() => {
-            element.classList.toggle("is-flipped");allCardsActive = true;
+            element.classList.toggle("is-flipped");
+            allCardsActive = true;
           }, 1100);
           console.log("not pair");
         } else {
@@ -346,7 +313,8 @@ function findingPairs() {
             foundPairs[0].parentNode.parentNode.remove();
           }, 1100);
           setTimeout(() => {
-            foundPairs[1].parentNode.parentNode.remove();allCardsActive = true;
+            foundPairs[1].parentNode.parentNode.remove();
+            allCardsActive = true;
           }, 1100);
           console.log("pair");
         }
