@@ -35,7 +35,7 @@ li:hover {
 }
 
 span {
-  font-family: 'Mistral', cursive;
+  font-family: "Mistral", cursive;
   font-size: 1.8vw;
   text-transform: capitalize;
   font-weight: normal;
@@ -46,7 +46,13 @@ span {
 .sizeF,
 .sizeP,
 .sizeA,
-.sizeT {
+.sizeT,
+.sizeBB,
+.sizeCB,
+.sizeFB,
+.sizePB,
+.sizeAB,
+.sizeTB {
   display: none;
   width: 50%;
   margin-left: 25%;
