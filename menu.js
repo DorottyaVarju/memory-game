@@ -31,133 +31,198 @@ const sizeTB = Array.from(document.getElementsByClassName("sizeTB"));
 /*function of appearing and disappearing of the submenu*/
 
 function setAppearance(size) {
-    size.forEach((element) => {
-        console.log(size);
-      if (element.style.display == "block") {
-        console.log("tüntesd el");
-        element.style.display = "none";
-      } else {
-        console.log("jelenitsd meg");
-        element.style.display = "block";
+  size.forEach((element) => {
+    if (element.style.display == "block") {
+      element.style.display = "none";
+    } else {
+      element.style.display = "block";
+    }
+  });
+}
+
+function disappearing(size) {
+  size.forEach((element) => {
+    if (element.style.display == "block") {
+      element.style.display = "none";
+    }
+  });
+}
+
+/*menu*/
+
+coffee.addEventListener("click", function () {
+  setAppearance(sizeC);
+  disappearing(sizeB);
+  disappearing(sizeF);
+  disappearing(sizeP);
+  disappearing(sizeA);
+  disappearing(sizeT);
+});
+
+building.addEventListener("click", function () {
+  setAppearance(sizeB);
+  disappearing(sizeC);
+  disappearing(sizeF);
+  disappearing(sizeP);
+  disappearing(sizeA);
+  disappearing(sizeT);
+});
+
+fruit.addEventListener("click", function () {
+  setAppearance(sizeF);
+  disappearing(sizeC);
+  disappearing(sizeB);
+  disappearing(sizeP);
+  disappearing(sizeA);
+  disappearing(sizeT);
+});
+
+plant.addEventListener("click", function () {
+  setAppearance(sizeP);
+  disappearing(sizeC);
+  disappearing(sizeB);
+  disappearing(sizeF);
+  disappearing(sizeA);
+  disappearing(sizeT);
+});
+
+animal.addEventListener("click", function () {
+  setAppearance(sizeA);
+  disappearing(sizeC);
+  disappearing(sizeB);
+  disappearing(sizeF);
+  disappearing(sizeP);
+  disappearing(sizeT);
+});
+
+travel.addEventListener("click", function () {
+  setAppearance(sizeT);
+  disappearing(sizeC);
+  disappearing(sizeB);
+  disappearing(sizeF);
+  disappearing(sizeP);
+  disappearing(sizeA);
+});
+
+let numOfCards;
+
+function submenu(items, theme) {
+  items.forEach((item) => {
+    item.addEventListener("click", function () {
+      switch (item) {
+        case items[0]:
+          numOfCards = 12;
+          break;
+        case items[1]:
+          numOfCards = 16;
+          break;
+        case items[2]:
+          numOfCards = 20;
+          break;
+        case items[3]:
+          numOfCards = 24;
+          break;
       }
+      setAppearance(items);
+      deleteCards();
+      putCards(theme, numOfCards);
+      findingPairs();
     });
-  }
-  
-  /*menu*/
-  
-  coffee.addEventListener("click", function () {
-    setAppearance(sizeC);
   });
-  
-  building.addEventListener("click", function () {
-    setAppearance(sizeB);
-  });
-  
-  fruit.addEventListener("click", function () {
-    setAppearance(sizeF);
-  });
-  
-  plant.addEventListener("click", function () {
-    setAppearance(sizeP);
-  });
-  
-  animal.addEventListener("click", function () {
-    setAppearance(sizeA);
-  });
-  
-  travel.addEventListener("click", function () {
-    setAppearance(sizeT);
-  });
+}
 
-  let numOfCards;
-  
-  function submenu(items, theme) {
-    items.forEach((item) => {
-      item.addEventListener("click", function () {
-        switch (item) {
-          case items[0]:
-            numOfCards = 12;
-            break;
-          case items[1]:
-            numOfCards = 16;
-            break;
-          case items[2]:
-            numOfCards = 20;
-            break;
-          case items[3]:
-            numOfCards = 24;
-            break;
-        }
-        setAppearance(items);
-        deleteCards();
-        putCards(theme, numOfCards);
-        findingPairs();
-      });
+submenu(sizeC, "coffee");
+submenu(sizeB, "building");
+submenu(sizeF, "fruit");
+submenu(sizeP, "plant");
+submenu(sizeA, "animal");
+submenu(sizeT, "travel");
+
+/*burger menu*/
+
+coffeeBurger.onclick = function () {
+  setAppearance(sizeCB);
+  disappearing(sizePB);
+  disappearing(sizeBB);
+  disappearing(sizeFB);
+  disappearing(sizeAB);
+  disappearing(sizeTB);
+};
+
+buildingBurger.onclick = function () {
+  setAppearance(sizeBB);
+  disappearing(sizePB);
+  disappearing(sizeCB);
+  disappearing(sizeFB);
+  disappearing(sizeAB);
+  disappearing(sizeTB);
+};
+
+fruitBurger.onclick = function () {
+  setAppearance(sizeFB);
+  disappearing(sizePB);
+  disappearing(sizeCB);
+  disappearing(sizeBB);
+  disappearing(sizeAB);
+  disappearing(sizeTB);
+};
+
+plantBurger.onclick = function () {
+  setAppearance(sizePB);
+  disappearing(sizeFB);
+  disappearing(sizeCB);
+  disappearing(sizeBB);
+  disappearing(sizeAB);
+  disappearing(sizeTB);
+};
+
+animalBurger.onclick = function () {
+  setAppearance(sizeAB);
+  disappearing(sizeFB);
+  disappearing(sizeCB);
+  disappearing(sizeBB);
+  disappearing(sizePB);
+  disappearing(sizeTB);
+};
+
+travelBurger.onclick = function () {
+  setAppearance(sizeTB);
+  disappearing(sizeFB);
+  disappearing(sizeCB);
+  disappearing(sizeBB);
+  disappearing(sizeAB);
+  disappearing(sizePB);
+};
+
+function submenuBurger(items, theme) {
+  items.forEach((item) => {
+    item.addEventListener("click", function () {
+      switch (item) {
+        case items[0]:
+          numOfCards = 12;
+          break;
+        case items[1]:
+          numOfCards = 16;
+          break;
+        case items[2]:
+          numOfCards = 20;
+          break;
+        case items[3]:
+          numOfCards = 24;
+          break;
+      }
+      setAppearance(items);
+      deleteCards();
+      putCards(theme, numOfCards);
+      findingPairs();
+      document.getElementById("myModal").style.display = "none";
     });
-  }
-  
-  submenu(sizeC, "coffee");
-  submenu(sizeB, "building");
-  submenu(sizeF, "fruit");
-  submenu(sizeP, "plant");
-  submenu(sizeA, "animal");
-  submenu(sizeT, "travel");
-  
-  /*burger menu*/
+  });
+}
 
-  coffeeBurger.onclick = function () {
-    setAppearance(sizeCB);
-  };
-  
-  buildingBurger.onclick = function () {
-    setAppearance(sizeBB);
-  };
-  
-  fruitBurger.onclick = function () {
-    setAppearance(sizeFB);
-  };
-  
-  plantBurger.onclick = function () {
-    setAppearance(sizePB);
-  };
-  
-  animalBurger.onclick = function () {
-    setAppearance(sizeAB);
-  };
-  
-  travelBurger.onclick = function () {
-    setAppearance(sizeTB);
-  };
-
-  function submenuBurger(items, theme) {
-    items.forEach((item) => {
-      item.addEventListener("click", function () {
-        switch (item) {
-          case items[0]:
-            numOfCards = 12;
-            break;
-          case items[1]:
-            numOfCards = 16;
-            break;
-          case items[2]:
-            numOfCards = 20;
-            break;
-          case items[3]:
-            numOfCards = 24;
-            break;
-        }
-        setAppearance(items);
-        deleteCards();
-        putCards(theme, numOfCards);
-        findingPairs();
-        document.getElementById("myModal").style.display = "none";
-      });
-    });
-  }
-  
-  submenuBurger(sizeCB, "coffee");
-  submenuBurger(sizeBB, "building");
-  submenuBurger(sizeFB, "fruit");
-  submenuBurger(sizePB, "plant");
-  submenuBurger(sizeAB, "animal");
-  submenuBurger(sizeTB, "travel");
+submenuBurger(sizeCB, "coffee");
+submenuBurger(sizeBB, "building");
+submenuBurger(sizeFB, "fruit");
+submenuBurger(sizePB, "plant");
+submenuBurger(sizeAB, "animal");
+submenuBurger(sizeTB, "travel");
