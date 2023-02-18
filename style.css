@@ -5,7 +5,21 @@
 }
 
 body {
-  background-image: linear-gradient(to bottom right, #989795, #dddcda);
+    background: linear-gradient(-45deg, #001d4a, #27476e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradient 60s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /*menu*/
@@ -127,7 +141,7 @@ a.icon:hover {
 
 .playingArea {
   width: 80%;
-  min-height: 800px;
+  min-height: 100%;
   margin-left: 30%;
 }
 
@@ -141,9 +155,9 @@ a.icon:hover {
 }
 
 .card {
-  background-color: lightblue;
+  background-image: url("pics/back.jpg");
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border: 1px solid white;
+  border: 10px solid white;
   border-radius: 15px;
   position: relative;
   width: 9.5vw;
@@ -168,20 +182,19 @@ a.icon:hover {
 }
 
 .card__face--back {
-  background: lightblue;
   transform: rotateY(180deg);
 }
 
 .box {
-  background: lightblue;
   height: 9.5vw;
   width: 9.5vw;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border: 1px solid white;
   border-radius: 15px;
 }
 
 .images {
+  margin-left: 10px;
+  margin-top: -10px;
+  border: 10px solid white;
   border-radius: 15px;
 }
 
