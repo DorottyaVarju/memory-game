@@ -6,6 +6,12 @@
 
 /*background*/
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
 body {
   background: linear-gradient(-45deg, #001d4a, #27476e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
@@ -89,15 +95,15 @@ span {
 .sizeAB:first-child,
 .sizeTB:first-child {
   position: relative;
-  animation: mymove1 1s;
+  animation: mymove1 0.25s;
 }
 
 .sizeA:nth-child(2),
 .sizeB:nth-child(2),
 .sizeC:nth-child(2),
-.sizeF:nth-child(2),
 .sizeP:nth-child(2),
 .sizeT:nth-child(2),
+.sizeF:nth-child(2),
 .sizeBB:nth-child(2),
 .sizeCB:nth-child(2),
 .sizeFB:nth-child(2),
@@ -105,7 +111,7 @@ span {
 .sizeAB:nth-child(2),
 .sizeTB:nth-child(2) {
   position: relative;
-  animation: mymove2 1.5s;
+  animation: mymove2 0.5s;
 }
 
 .sizeA:nth-child(3),
@@ -121,7 +127,7 @@ span {
 .sizeAB:nth-child(3),
 .sizeTB:nth-child(3) {
   position: relative;
-  animation: mymove3 1.8s;
+  animation: mymove3 0.75s;
 }
 
 .sizeA:nth-child(4),
@@ -137,7 +143,7 @@ span {
 .sizeAB:nth-child(4),
 .sizeTB:nth-child(4) {
   position: relative;
-  animation: mymove4 2s;
+  animation: mymove4 1s;
 }
 
 @keyframes mymove1 {
@@ -145,7 +151,7 @@ span {
     top: -100px;
     opacity: 0;
   }
-  10% {
+  20% {
     opacity: 0;
   }
   100% {
@@ -159,7 +165,7 @@ span {
     top: -200px;
     opacity: 0;
   }
-  30% {
+  40% {
     opacity: 0;
   }
   100% {
@@ -173,7 +179,7 @@ span {
     top: -300px;
     opacity: 0;
   }
-  50% {
+  60% {
     opacity: 0;
   }
   100% {
@@ -187,7 +193,7 @@ span {
     top: -400px;
     opacity: 0;
   }
-  70% {
+  80% {
     opacity: 0;
   }
   100% {
@@ -263,7 +269,7 @@ a.icon:hover {
 
 .playingArea {
   width: 80%;
-  min-height: 100%;
+  height: 100vw;
   margin-left: 30%;
 }
 
@@ -284,12 +290,17 @@ a.icon:hover {
   position: relative;
   width: 9.5vw;
   height: 9.5vw;
-  cursor: pointer;
   transform-style: preserve-3d;
   transform-origin: center right;
   transition: transform 0.65s;
 }
 
+.foundCard {
+  border: 0.5px solid darkblue;
+  border-radius: 15px;
+  width: 9.5vw;
+  height: 9.5vw;
+}
 .card:hover {
   cursor: pointer;
 }
