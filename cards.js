@@ -17,15 +17,35 @@ function randomizeNumbers(size) {
 function putCards(topic, size) {
   randomizeNumbers(size);
   let j;
-  for (j = 0; j < numbers.length / 4; j++) {
+  let num;
+  let col="col-2";
+  if(screen.width>screen.height && screen.width > 992) {
+    switch(numbers.length) {
+      case 12: num = 4;break;
+      case 16: num = 4;break;
+      case 20: num = 5;break;
+      case 24: num = 6;break;
+    }
+  }
+  else {
+    container.style.marginLeft = "25%";
+    switch(numbers.length) {
+      case 12: num = 3;col="col-4";break;
+      case 16: num = 2;col="col-6";break;
+      case 20: num = 2;col="col-6";break;
+      case 24: num = 3;col="col-4";break;
+    }
+  }
+
+  for (j = 0; j < numbers.length/num; j++) {
     let row = document.createElement("div");
     row.classList.add("row");
     container.appendChild(row);
     let rows = Array.from(document.getElementsByClassName("row"));
     let k;
-    for (k = 0; k < 4; k++) {
+    for (k = 0; k < num; k++) {
       let scene = document.createElement("div");
-      scene.classList.add("col-2", "scene", "scene--card");
+        scene.classList.add(col, "scene", "scene--card");
       rows[j].appendChild(scene);
     }
   }
