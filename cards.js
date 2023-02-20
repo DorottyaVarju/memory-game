@@ -89,6 +89,10 @@ function deleteCards() {
   const scene = document.getElementsByClassName("scene");
   const card = document.getElementsByClassName("card");
   const card__face = document.getElementsByClassName("card__face");
+  const fallingCard = document.getElementsByClassName("fallingCard");
+  while (fallingCard.length > 0) {
+    fallingCard[0].remove();
+  }
   while (row.length > 0) {
     row[0].remove();
   }
