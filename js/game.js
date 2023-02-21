@@ -10,6 +10,7 @@ function findingPairs() {
         card.classList.toggle("is-flipped");
         Pairs();
       }
+      console.log(numberOfClickedCards);
     });
   });
 
@@ -19,6 +20,8 @@ function findingPairs() {
   function Pairs() {
     let isFlipped = Array.from(document.querySelectorAll(".is-flipped"));
 
+    if(isFlipped.length != 0)
+    {
     if (numberOfClickedCards == 2) {
       allCardsActive = false;
       let foundPairs = [];
@@ -26,10 +29,10 @@ function findingPairs() {
 
       isFlipped.forEach((element) => {
         let nameOfImg = element.lastElementChild.firstChild;
-
+        
         foundPairs.push(nameOfImg);
         srcOfImgs.push(nameOfImg.getAttribute("src"));
-
+  
         if (srcOfImgs[0] != srcOfImgs[1]) {
           setTimeout(() => {
             element.classList.toggle("is-flipped");
@@ -52,5 +55,7 @@ function findingPairs() {
       });
       numberOfClickedCards = 0;
     }
+    }
+    else {numberOfClickedCards = 0;}
   }
 }
