@@ -18,34 +18,53 @@ function putCards(topic, size) {
   randomizeNumbers(size);
   let j;
   let num;
-  let col="col-2";
-  if(screen.width>screen.height && screen.width > 992) {
-    switch(numbers.length) {
-      case 12: num = 4;break;
-      case 16: num = 4;break;
-      case 20: num = 5;break;
-      case 24: num = 6;break;
+  let col = "col-2";
+  if (screen.width > screen.height && screen.width > 992) {
+    switch (numbers.length) {
+      case 12:
+        num = 4;
+        break;
+      case 16:
+        num = 4;
+        break;
+      case 20:
+        num = 5;
+        break;
+      case 24:
+        num = 6;
+        break;
     }
-  }
-  else {
+  } else {
     container.style.marginLeft = "25%";
-    switch(numbers.length) {
-      case 12: num = 3;col="col-4";break;
-      case 16: num = 2;col="col-6";break;
-      case 20: num = 2;col="col-6";break;
-      case 24: num = 3;col="col-4";break;
+    switch (numbers.length) {
+      case 12:
+        num = 3;
+        col = "col-4";
+        break;
+      case 16:
+        num = 3;
+        col = "col-4";
+        break;
+      case 20:
+        num = 3;
+        col = "col-4";
+        break;
+      case 24:
+        num = 4;
+        col = "col-3";
+        break;
     }
   }
 
-  for (j = 0; j < numbers.length/num; j++) {
+  for (j = 0; j < numbers.length / num; j++) {
     let row = document.createElement("div");
-    row.classList.add("row");
+    row.classList.add("row", "justify-content-center");
     container.appendChild(row);
     let rows = Array.from(document.getElementsByClassName("row"));
     let k;
     for (k = 0; k < num; k++) {
       let scene = document.createElement("div");
-        scene.classList.add(col, "scene", "scene--card");
+      scene.classList.add(col, "scene", "scene--card");
       rows[j].appendChild(scene);
     }
   }
@@ -90,6 +109,8 @@ function deleteCards() {
   const card = document.getElementsByClassName("card");
   const card__face = document.getElementsByClassName("card__face");
   const fallingCard = document.getElementsByClassName("fallingCard");
+  const end = document.getElementsByClassName("end");
+
   while (fallingCard.length > 0) {
     fallingCard[0].remove();
   }
@@ -107,5 +128,8 @@ function deleteCards() {
   }
   while (images.length > 0) {
     images[0].parentNode.removeChild(images[0]);
+  }
+  while (end.length > 0) {
+    end[0].remove();
   }
 }

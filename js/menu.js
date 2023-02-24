@@ -30,20 +30,25 @@ const sizeTB = Array.from(document.getElementsByClassName("sizeTB"));
 
 /*function of appearing and disappearing of the submenu*/
 
-function setAppearance(size) {
+function setAppearance(size, className) {
   size.forEach((element) => {
     if (element.style.display == "block") {
       element.style.display = "none";
+      element.classList.remove(className);
     } else {
       element.style.display = "block";
+      setTimeout(() => {
+        element.classList.add(className);
+      }, 500);
     }
   });
 }
 
-function disappearing(size) {
+function disappearing(size, className) {
   size.forEach((element) => {
     if (element.style.display == "block") {
       element.style.display = "none";
+      element.classList.remove(className);
     }
   });
 }
@@ -51,57 +56,57 @@ function disappearing(size) {
 /*menu*/
 
 coffee.addEventListener("click", function () {
-  setAppearance(sizeC);
-  disappearing(sizeB);
-  disappearing(sizeF);
-  disappearing(sizeP);
-  disappearing(sizeA);
-  disappearing(sizeT);
+  setAppearance(sizeC, "hoverC");
+  disappearing(sizeB, "hoverB");
+  disappearing(sizeF, "hoverF");
+  disappearing(sizeP, "hoverP");
+  disappearing(sizeA, "hoverA");
+  disappearing(sizeT, "hoverT");
 });
 
 building.addEventListener("click", function () {
-  setAppearance(sizeB);
-  disappearing(sizeC);
-  disappearing(sizeF);
-  disappearing(sizeP);
-  disappearing(sizeA);
-  disappearing(sizeT);
+  setAppearance(sizeB, "hoverB");
+  disappearing(sizeC, "hoverC");
+  disappearing(sizeF, "hoverF");
+  disappearing(sizeP, "hoverP");
+  disappearing(sizeA, "hoverA");
+  disappearing(sizeT, "hoverT");
 });
 
 fruit.addEventListener("click", function () {
-  setAppearance(sizeF);
-  disappearing(sizeC);
-  disappearing(sizeB);
-  disappearing(sizeP);
-  disappearing(sizeA);
-  disappearing(sizeT);
+  setAppearance(sizeF, "hoverF");
+  disappearing(sizeC, "hoverC");
+  disappearing(sizeB, "hoverB");
+  disappearing(sizeP, "hoverP");
+  disappearing(sizeA, "hoverA");
+  disappearing(sizeT, "hoverT");
 });
 
 plant.addEventListener("click", function () {
-  setAppearance(sizeP);
-  disappearing(sizeC);
-  disappearing(sizeB);
-  disappearing(sizeF);
-  disappearing(sizeA);
-  disappearing(sizeT);
+  setAppearance(sizeP, "hoverP");
+  disappearing(sizeC, "hoverC");
+  disappearing(sizeB, "hoverB");
+  disappearing(sizeF, "hoverF");
+  disappearing(sizeA, "hoverA");
+  disappearing(sizeT, "hoverT");
 });
 
 animal.addEventListener("click", function () {
-  setAppearance(sizeA);
-  disappearing(sizeC);
-  disappearing(sizeB);
-  disappearing(sizeF);
-  disappearing(sizeP);
-  disappearing(sizeT);
+  setAppearance(sizeA, "hoverA");
+  disappearing(sizeC, "hoverC");
+  disappearing(sizeB, "hoverB");
+  disappearing(sizeF, "hoverF");
+  disappearing(sizeP, "hoverP");
+  disappearing(sizeT, "hoverT");
 });
 
 travel.addEventListener("click", function () {
-  setAppearance(sizeT);
-  disappearing(sizeC);
-  disappearing(sizeB);
-  disappearing(sizeF);
-  disappearing(sizeP);
-  disappearing(sizeA);
+  setAppearance(sizeT, "hoverT");
+  disappearing(sizeC, "hoverC");
+  disappearing(sizeB, "hoverB");
+  disappearing(sizeF, "hoverF");
+  disappearing(sizeP, "hoverP");
+  disappearing(sizeA, "hoverA");
 });
 
 let numOfCards;
@@ -141,57 +146,57 @@ submenu(sizeT, "travel");
 /*burger menu*/
 
 coffeeBurger.onclick = function () {
-  setAppearance(sizeCB);
-  disappearing(sizePB);
-  disappearing(sizeBB);
-  disappearing(sizeFB);
-  disappearing(sizeAB);
-  disappearing(sizeTB);
+  setAppearance(sizeCB, "hoverCB");
+  disappearing(sizePB, "hoverPB");
+  disappearing(sizeBB, "hoverBB");
+  disappearing(sizeFB, "hoverFB");
+  disappearing(sizeAB, "hoverAB");
+  disappearing(sizeTB, "hoverTB");
 };
 
 buildingBurger.onclick = function () {
-  setAppearance(sizeBB);
-  disappearing(sizePB);
-  disappearing(sizeCB);
-  disappearing(sizeFB);
-  disappearing(sizeAB);
-  disappearing(sizeTB);
+  setAppearance(sizeBB, "hoverBB");
+  disappearing(sizePB, "hoverPB");
+  disappearing(sizeCB, "hoverCB");
+  disappearing(sizeFB, "hoverFB");
+  disappearing(sizeAB, "hoverAB");
+  disappearing(sizeTB, "hoverTB");
 };
 
 fruitBurger.onclick = function () {
-  setAppearance(sizeFB);
-  disappearing(sizePB);
-  disappearing(sizeCB);
-  disappearing(sizeBB);
-  disappearing(sizeAB);
-  disappearing(sizeTB);
+  setAppearance(sizeFB, "hoverFB");
+  disappearing(sizePB, "hoverPB");
+  disappearing(sizeCB, "hoverCB");
+  disappearing(sizeBB, "hoverBB");
+  disappearing(sizeAB, "hoverAB");
+  disappearing(sizeTB, "hoverTB");
 };
 
 plantBurger.onclick = function () {
-  setAppearance(sizePB);
-  disappearing(sizeFB);
-  disappearing(sizeCB);
-  disappearing(sizeBB);
-  disappearing(sizeAB);
-  disappearing(sizeTB);
+  setAppearance(sizePB, "hoverPB");
+  disappearing(sizeFB, "hoverFB");
+  disappearing(sizeCB, "hoverCB");
+  disappearing(sizeBB, "hoverBB");
+  disappearing(sizeAB, "hoverAB");
+  disappearing(sizeTB, "hoverTB");
 };
 
 animalBurger.onclick = function () {
-  setAppearance(sizeAB);
-  disappearing(sizeFB);
-  disappearing(sizeCB);
-  disappearing(sizeBB);
-  disappearing(sizePB);
-  disappearing(sizeTB);
+  setAppearance(sizeAB, "hoverAB");
+  disappearing(sizeFB, "hoverFB");
+  disappearing(sizeCB, "hoverCB");
+  disappearing(sizeBB, "hoverBB");
+  disappearing(sizePB, "hoverPB");
+  disappearing(sizeTB, "hoverTB");
 };
 
 travelBurger.onclick = function () {
-  setAppearance(sizeTB);
-  disappearing(sizeFB);
-  disappearing(sizeCB);
-  disappearing(sizeBB);
-  disappearing(sizeAB);
-  disappearing(sizePB);
+  setAppearance(sizeTB, "hoverTB");
+  disappearing(sizeFB, "hoverFB");
+  disappearing(sizeCB, "hoverCB");
+  disappearing(sizeBB, "hoverBB");
+  disappearing(sizeAB, "hoverAB");
+  disappearing(sizePB, "hoverPB");
 };
 
 function submenuBurger(items, theme) {
