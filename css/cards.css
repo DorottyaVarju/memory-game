@@ -27,6 +27,7 @@
   width: 9.5vw;
   height: 9.5vw;
 }
+
 .card:hover {
   cursor: pointer;
 }
@@ -59,10 +60,37 @@
   border-radius: 15px;
 }
 
+.fade {
+  z-index: -1;
+  animation: fade 2.5s ease-out;
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 .end {
   text-align: center;
-  font-size: 3vw;
   color: #31525b;
+  font-size: 3vw;
+  animation: end 5s ease-out;
+  margin-top: -26vw;
+}
+
+@keyframes end {
+  from {
+    font-size: 0.2vw;
+    opacity: 0;
+  }
+  to {
+    font-size: 3vw;
+    opacity: 1;
+  }
 }
 
 @media only screen and (max-width: 992px) {
@@ -95,18 +123,6 @@
 }
 
 @media only screen and (max-width: 576px) {
-  .fallingCard,
-  .back,
-  .fallingImages {
-    border-radius: 2px;
-  }
-
-  .fallingCard,
-  .back {
-    width: 65px;
-    height: 65px;
-  }
-
   .card,
   .box,
   .images {
@@ -121,9 +137,9 @@
   .card,
   .foundCard,
   .box {
-    width: 26vw;
+    width: 19vw;
     min-width: 74px;
-    height: 26vw;
+    height: 19vw;
     min-height: 74px;
   }
 

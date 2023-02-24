@@ -39,7 +39,7 @@ function setAppearance(size, className) {
       element.style.display = "block";
       setTimeout(() => {
         element.classList.add(className);
-      }, 500);
+      }, 650);
     }
   });
 }

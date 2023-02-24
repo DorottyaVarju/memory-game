@@ -11,13 +11,11 @@ function findingPairs() {
         card.classList.toggle("is-flipped");
         Pairs();
       }
-      console.log(numberOfClickedCards);
     });
   });
 
   function Pairs() {
     let isFlipped = Array.from(document.querySelectorAll(".is-flipped"));
-
     if (isFlipped.length != 0) {
       if (numberOfClickedCards == 2) {
         allCardsActive = false;
@@ -35,35 +33,47 @@ function findingPairs() {
               element.classList.toggle("is-flipped");
               allCardsActive = true;
             }, 1100);
-            console.log("not pair");
           } else {
             setTimeout(() => {
+              foundPairs[0].parentNode.parentNode.classList.remove(
+                "is-flipped"
+              );
               foundPairs[0].parentNode.parentNode.classList.remove("card");
-              foundPairs[0].parentNode.parentNode.classList.add("foundCard");
+              let div1 = document.createElement("div");
+              div1.classList.add("foundCard");
+              foundPairs[0].parentNode.parentNode.parentNode.appendChild(div1);
+              foundPairs[0].parentNode.parentNode.remove();
             }, 1100);
             setTimeout(() => {
+              foundPairs[1].parentNode.parentNode.classList.remove(
+                "is-flipped"
+              );
               foundPairs[1].parentNode.parentNode.classList.remove("card");
-              foundPairs[1].parentNode.parentNode.classList.add("foundCard");
+              let div2 = document.createElement("div");
+              div2.classList.add("foundCard");
+              foundPairs[1].parentNode.parentNode.parentNode.appendChild(div2);
+              foundPairs[1].parentNode.parentNode.remove();
               allCardsActive = true;
             }, 1100);
+            cards = document.querySelectorAll(".card");
             pairs++;
             if (pairs == numbers.length / 2) {
-              console.log("vége");
+              let foundCards = Array.from(
+                document.querySelectorAll(".foundCard")
+              );
+
               let scenes = document.querySelectorAll(".scene");
               setTimeout(() => {
                 scenes.forEach((scene) => {
-                  scene.remove();
+                  scene.classList.add("fade");
                 });
                 let end = document.createElement("p");
                 end.innerHTML =
                   "Congratulations!\n <span> You found all the pairs! </span>";
                 end.classList.add("end", "row", "justify-content-center");
                 container.appendChild(end);
-              }, 3000);
+              }, 2000);
             }
-
-            console.log("pair");
-            console.log(foundPairs[0].parentNode.parentNode.children);
           }
         });
         numberOfClickedCards = 0;
