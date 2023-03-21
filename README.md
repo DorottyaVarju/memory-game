@@ -15,3 +15,6 @@ If the 2 face-up cards are not a pair, then the cards are turned over by themsel
 
 ![Screenshot from 2023-03-21 13-19-52](https://user-images.githubusercontent.com/125662526/226604301-19bc501c-009e-456c-a387-eeeaeaa9ef3e.png)
 ![Screenshot from 2023-03-21 13-20-31](https://user-images.githubusercontent.com/125662526/226604313-05778bc0-2865-4e9e-a1fb-93f049ebace8.png)
+
+If all the pairs are found, all the blue frames disappear and a message appears. Afterwards the user can choose a topic and the number of cards to play again.
+![Screenshot from 2023-03-21 13-23-05](https://user-images.githubusercontent.com/125662526/226605410-60d83575-cef7-4e4d-8284-3c8d12c75670.png)
