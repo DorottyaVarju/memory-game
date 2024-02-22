@@ -20,6 +20,7 @@ body {
   );
   background-size: 400% 400%;
   animation: gradient 50s ease infinite;
+  overflow-x: hidden;
 }
 
 @keyframes gradient {
@@ -38,6 +39,9 @@ body {
   width: 80%;
   height: 100vh;
   margin-left: 21%;
+  overflow: hidden;
+  position: absolute;
+  margin-top: 0rem !important;
 }
 
 p1,
