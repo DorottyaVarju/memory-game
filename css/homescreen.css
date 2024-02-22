@@ -37,10 +37,8 @@ body {
 
 .playingArea {
   width: 80%;
-  height: 100vh;
+  height: 100%;
   margin-left: 21%;
-  overflow: hidden;
-  position: absolute;
   margin-top: 0rem !important;
 }
 
@@ -169,7 +167,7 @@ p2 {
     transform: translateX(50px) rotateX(180deg);
   }
   100% {
-    top: 80%;
+    top: 40%;
     transform: translateX(-100px) rotateX(-180deg);
   }
 }
@@ -180,7 +178,7 @@ p2 {
     transform: translateX(-50px) rotateX(-90deg);
   }
   100% {
-    top: 80%;
+    top: 40%;
     transform: translateX(-80px) rotateX(180deg);
   }
 }
@@ -191,7 +189,7 @@ p2 {
     transform: translateX(0px) rotateX(-180deg);
   }
   100% {
-    top: 80%;
+    top: 40%;
     transform: translateX(-400px) rotateX(180deg);
   }
 }
@@ -202,7 +200,7 @@ p2 {
     transform: translateX(0px) rotateY(-180deg);
   }
   100% {
-    top: 80%;
+    top: 40%;
     transform: translateX(-400px) rotateY(180deg);
   }
 }
@@ -213,7 +211,7 @@ p2 {
     transform: translateX(100px) rotateY(180deg);
   }
   100% {
-    top: 80%;
+    top: 40%;
     transform: translateX(-250px) rotateY(-180deg);
   }
 }
