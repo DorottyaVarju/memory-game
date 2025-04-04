@@ -71,7 +71,7 @@ function findingPairs() {
                 end.innerHTML =
                   "Congratulations!\n <span> You found all the pairs! </span>";
                 end.classList.add("end", "row", "justify-content-center");
-                container.appendChild(end);
+                playingArea.appendChild(end);
               }, 2000);
             }
           }

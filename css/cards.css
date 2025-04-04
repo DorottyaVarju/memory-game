@@ -1,10 +1,13 @@
-.row {
-  padding-top: 3%;
-}
-
 .scene {
   display: inline-block;
   perspective: 600px;
+}
+
+.row{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding-top: 10px;
 }
 
 .card {
@@ -14,8 +17,8 @@
   border: 8px solid white;
   border-radius: 15px;
   position: relative;
-  width: 9.5vw;
-  height: 9.5vw;
+  width: 7.5vw;
+  height: 7.5vw;
   transform-style: preserve-3d;
   transform-origin: center right;
   transition: transform 0.65s;
@@ -24,8 +27,8 @@
 .foundCard {
   border: 0.5px solid darkblue;
   border-radius: 15px;
-  width: 9.5vw;
-  height: 9.5vw;
+  width: 7.5vw;
+  height: 7.5vw;
 }
 
 .card:hover {
@@ -48,8 +51,8 @@
 }
 
 .box {
-  height: 9.5vw;
-  width: 9.5vw;
+  height: 7.5vw;
+  width: 7.5vw;
   border-radius: 15px;
 }
 
@@ -93,7 +96,7 @@
   }
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1126px) {
   .scene {
     margin: 20px auto;
   }

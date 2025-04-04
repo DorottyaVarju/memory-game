@@ -1,6 +1,4 @@
-const container = document.getElementsByClassName("container")[1];
-
-/*put into the "numbers" array the numbers between 0 and the given size in a random order*/
+const playingArea = document.getElementsByClassName("playingArea")[0];
 
 let numbers;
 function randomizeNumbers(size) {
@@ -11,8 +9,6 @@ function randomizeNumbers(size) {
   }
   return numbers;
 }
-
-/*function of generating the images in a random order and putting the cards onto screen*/
 
 function putCards(topic, size) {
   randomizeNumbers(size);
@@ -35,7 +31,6 @@ function putCards(topic, size) {
         break;
     }
   } else {
-    container.style.marginLeft = "25%";
     switch (numbers.length) {
       case 12:
         num = 3;
@@ -59,7 +54,7 @@ function putCards(topic, size) {
   for (j = 0; j < numbers.length / num; j++) {
     let row = document.createElement("div");
     row.classList.add("row", "justify-content-center");
-    container.appendChild(row);
+    playingArea.appendChild(row);
     let rows = Array.from(document.getElementsByClassName("row"));
     let k;
     for (k = 0; k < num; k++) {
@@ -108,12 +103,8 @@ function deleteCards() {
   const scene = document.getElementsByClassName("scene");
   const card = document.getElementsByClassName("card");
   const card__face = document.getElementsByClassName("card__face");
-  const fallingCard = document.getElementsByClassName("fallingCard");
   const end = document.getElementsByClassName("end");
 
-  while (fallingCard.length > 0) {
-    fallingCard[0].remove();
-  }
   while (row.length > 0) {
     row[0].remove();
   }
