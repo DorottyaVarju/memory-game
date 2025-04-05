@@ -1,6 +1,6 @@
 const modal = document.getElementById("myModal");
 
-const icon = document.getElementsByClassName("icon")[0];
+const icon = document.getElementsByClassName("burger-menu-icon")[0];
 
 const span = document.getElementsByClassName("close")[0];
 

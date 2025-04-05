@@ -1,4 +1,4 @@
-a.icon {
+a.burger-menu-icon {
   display: none;
   position: absolute;
   left: 0;
@@ -12,7 +12,7 @@ a.icon {
   background-color: white;
 }
 
-a.icon:hover {
+a.burger-menu-icon:hover {
   color: white;
   cursor: pointer;
   background-color: rgba(42, 82, 91);
@@ -60,26 +60,21 @@ a.icon:hover {
   text-align: center;
 }
 
-.burgerMenuItems li:first-child {
-  margin-top: 15%;
+.size-list {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  margin: 0% auto;
+  gap: 10px;
 }
 
 .sizeBurger {
-  opacity: 0;
-  width: 30%;
-  margin-left: 35%;
-  margin-right: 35%;
-  margin-bottom: 10%;
+  display: none;
   border-radius: 20px;
-  padding: 5px;
-}
-
-.sizeBurger:first-child {
-  margin-top: 0px;
 }
 
 @media only screen and (max-width: 1126px) {
-  a.icon {
+  a.burger-menu-icon {
     display: block;
   }
 }

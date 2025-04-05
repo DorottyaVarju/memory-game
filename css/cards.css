@@ -17,8 +17,8 @@
   border: 8px solid white;
   border-radius: 15px;
   position: relative;
-  width: 7.5vw;
-  height: 7.5vw;
+  width: 8.7vw;
+  height: 8.7vw;
   transform-style: preserve-3d;
   transform-origin: center right;
   transition: transform 0.65s;
@@ -27,8 +27,8 @@
 .foundCard {
   border: 0.5px solid darkblue;
   border-radius: 15px;
-  width: 7.5vw;
-  height: 7.5vw;
+  width: 8.7vw;
+  height: 8.7vw;
 }
 
 .card:hover {
@@ -51,8 +51,8 @@
 }
 
 .box {
-  height: 7.5vw;
-  width: 7.5vw;
+  height: 8.7vw;
+  width: 8.7vw;
   border-radius: 15px;
 }
 
@@ -97,9 +97,6 @@
 }
 
 @media only screen and (max-width: 1126px) {
-  .scene {
-    margin: 20px auto;
-  }
 
   .card,
   .images {

@@ -1,210 +1,157 @@
-const coffee = document.getElementById("coffee");
-const building = document.getElementById("building");
-const fruit = document.getElementById("fruit");
-const plant = document.getElementById("plant");
-const animal = document.getElementById("animal");
-const travel = document.getElementById("travel");
+const sizes = [12, 16, 20, 24];
+const topics = ['coffee', 'building', 'fruit', 'plant', 'animal', 'travel'];
+const sizeElements = Array.from(document.getElementsByClassName("size"));
+const burgerMenuIcon = document.getElementsByClassName("burger-menu-icon")[0];
+let selectedSize, selectedTopic;
 
-const size = Array.from(document.getElementsByClassName("size"));
-
-const coffeeBurger = document.getElementById("coffeeBurger");
-const buildingBurger = document.getElementById("buildingBurger");
-const fruitBurger = document.getElementById("fruitBurger");
-const plantBurger = document.getElementById("plantBurger");
-const animalBurger = document.getElementById("animalBurger");
-const travelBurger = document.getElementById("travelBurger");
-
-const sizeBurger = Array.from(document.getElementsByClassName("sizeBurger"));
-
-function appear(size) {
-  size.forEach((element) => {
-    element.classList.remove("selected");
-    if (element.style.opacity == 0) {
-      element.style.opacity = 1;
-      element.addEventListener("click", function () {
-        size.forEach(function (item) {
-          item.classList.remove("selected");
+const setupSizeSelection = (sizeElements) => {
+  sizeElements.forEach((sizeElement) => {
+    sizeElement.classList.remove("selected");
+    if (sizeElement.style.opacity == 0) {
+      sizeElement.style.opacity = 1;
+      sizeElement.addEventListener("click", function () {
+        sizeElements.forEach(function (sizeElement) {
+          sizeElement.classList.remove("selected");
         });
-        element.classList.add("selected");
+        sizeElement.classList.add("selected");
       })
     }
   });
 }
 
-function disappearing(size, className) {
-  size.forEach((element) => {
-    if (element.style.opacity == 1) {
-      element.style.opacity = 0;
-      element.classList.remove(className);
-    }
-  });
+const handleTopicSelection = (topics) => {
+  topics.forEach((topic, index) => {
+    const topicElement = document.getElementById(topic);
+
+    topicElement.addEventListener("click", function () {
+      let otherTopics = topics.filter((_, i) => i !== index);
+      deleteCards(otherTopics);
+      topicElement.classList.add("selected");
+      otherTopics.forEach((otherTopic) => {
+        const otherTopicElement = document.getElementById(otherTopic);
+        otherTopicElement.classList.remove("selected");
+      })
+      const computedStyle = window.getComputedStyle(burgerMenuIcon);
+      if(computedStyle.display === "none"){
+        console.log(sizeElements);
+        setupSizeSelection(sizeElements);
+      } else {
+        const burgerSizeElements = Array.from(document.getElementsByClassName(topic + "-size"));
+        burgerSizeElements.forEach((burgerSizeElement, index) => {
+          burgerSizeElement.style.display = "block";
+        })
+        setupSizeSelection(burgerSizeElements);
+      }
+    });
+  })
 }
 
-/*menu*/
+const handleSizeSelection = (sizeElements, selectedTopic) => {
+  sizeElements.forEach((sizeElement, index) => {
+    sizeElement.addEventListener("click", function () {
 
-coffee.addEventListener("click", function () {
-  coffee.classList.add("selected");
-  building.classList.remove("selected");
-  fruit.classList.remove("selected");
-  plant.classList.remove("selected");
-  animal.classList.remove("selected");
-  travel.classList.remove("selected");
-  appear(size);
-});
+      topics.forEach((topic, index) => {
+        const topicElement = document.getElementById(topic);
 
-building.addEventListener("click", function () {
-  building.classList.add("selected");
-  coffee.classList.remove("selected");
-  fruit.classList.remove("selected");
-  plant.classList.remove("selected");
-  animal.classList.remove("selected");
-  travel.classList.remove("selected");
-  appear(size);
-});
-
-fruit.addEventListener("click", function () {
-  fruit.classList.add("selected");
-  coffee.classList.remove("selected");
-  building.classList.remove("selected");
-  plant.classList.remove("selected");
-  animal.classList.remove("selected");
-  travel.classList.remove("selected");
-  appear(size);
-});
-
-plant.addEventListener("click", function () {
-  plant.classList.add("selected");
-  coffee.classList.remove("selected");
-  building.classList.remove("selected");
-  fruit.classList.remove("selected");
-  animal.classList.remove("selected");
-  travel.classList.remove("selected");
-  appear(size);
-});
-
-animal.addEventListener("click", function () {
-  animal.classList.add("selected");
-  coffee.classList.remove("selected");
-  building.classList.remove("selected");
-  fruit.classList.remove("selected");
-  plant.classList.remove("selected");
-  travel.classList.remove("selected");
-  appear(size);
-});
-
-travel.addEventListener("click", function () {
-  travel.classList.add("selected");
-  coffee.classList.remove("selected");
-  building.classList.remove("selected");
-  fruit.classList.remove("selected");
-  plant.classList.remove("selected");
-  animal.classList.remove("selected");
-  appear(size);
-});
-
-let numOfCards;
-let topic;
-
-function submenu(items, topic) {
-  items.forEach((item) => {
-    item.addEventListener("click", function () {
-
-      if (coffee.classList.contains("selected")) {
-        topic = "coffee";
-      } else if (building.classList.contains("selected")) {
-        topic = "building";
-      } else if (fruit.classList.contains("selected")) {
-        topic = "fruit";
-      } else if (plant.classList.contains("selected")) {
-        topic = "plant";
-      } else if (animal.classList.contains("selected")) {
-        topic = "animal";
-      } else if (travel.classList.contains("selected")) {
-        topic = "travel";
-      }
-      switch (item) {
-        case items[0]:
-          numOfCards = 12;
-          break;
-        case items[1]:
-          numOfCards = 16;
-          break;
-        case items[2]:
-          numOfCards = 20;
-          break;
-        case items[3]:
-          numOfCards = 24;
-          break;
-      }
-      appear(items);
+        if (topicElement.classList.contains("selected")) {
+          selectedTopic = topic;
+        }
+      })
+      selectedSize = sizes[index];
+      setupSizeSelection(sizeElements);
       deleteCards();
-      putCards(topic, numOfCards);
+      putCards(selectedTopic, selectedSize);
       findingPairs();
     });
   });
 }
 
-submenu(size, topic);
+handleTopicSelection(topics);
+handleSizeSelection(sizeElements, selectedTopic);
 
 /*burger menu*/
 
-coffeeBurger.onclick = function () {
-  appear(sizeBurger);
-};
+const topicsBurger = topics.map((topic) => {
+  return topic+"-burger";
+});
 
-buildingBurger.onclick = function () {
-  appear(sizeBurger);
-};
+handleTopicSelection(topicsBurger);
 
-fruitBurger.onclick = function () {
-  appear(sizeBurger);
+// const coffeeBurger = document.getElementById("coffeeBurger");
+// const buildingBurger = document.getElementById("buildingBurger");
+// const fruitBurger = document.getElementById("fruitBurger");
+// const plantBurger = document.getElementById("plantBurger");
+// const animalBurger = document.getElementById("animalBurger");
+// const travelBurger = document.getElementById("travelBurger");
 
-};
+// const sizeBurger = Array.from(document.getElementsByClassName("sizeBurger"));
 
-plantBurger.onclick = function () {
-  appear(sizeBurger);
+// function disappearing(size, className) {
+//   size.forEach((element) => {
+//     if (element.style.opacity == 1) {
+//       element.style.opacity = 0;
+//       element.classList.remove(className);
+//     }
+//   });
+// }
 
-};
+// coffeeBurger.onclick = function () {
+//   setupSizeSelection(sizeBurger);
+// };
 
-animalBurger.onclick = function () {
-  appear(sizeBurger);
+// buildingBurger.onclick = function () {
+//   setupSizeSelection(sizeBurger);
+// };
 
-};
+// fruitBurger.onclick = function () {
+//   setupSizeSelection(sizeBurger);
 
-travelBurger.onclick = function () {
-  appear(sizeBurger);
+// };
 
-};
+// plantBurger.onclick = function () {
+//   setupSizeSelection(sizeBurger);
 
-function submenuBurger(items, topic) {
-  items.forEach((item) => {
-    item.addEventListener("click", function () {
-      switch (item) {
-        case items[0]:
-          numOfCards = 12;
-          break;
-        case items[1]:
-          numOfCards = 16;
-          break;
-        case items[2]:
-          numOfCards = 20;
-          break;
-        case items[3]:
-          numOfCards = 24;
-          break;
-      }
-      appear(items);
-      deleteCards();
-      putCards(topic, numOfCards);
-      findingPairs();
-      document.getElementById("myModal").style.display = "none";
-    });
-  });
-}
+// };
 
-submenuBurger(sizeBurger, "coffee");
-submenuBurger(sizeBurger, "building");
-submenuBurger(sizeBurger, "fruit");
-submenuBurger(sizeBurger, "plant");
-submenuBurger(sizeBurger, "animal");
-submenuBurger(sizeBurger, "travel");
+// animalBurger.onclick = function () {
+//   setupSizeSelection(sizeBurger);
+
+// };
+
+// travelBurger.onclick = function () {
+//   setupSizeSelection(sizeBurger);
+
+// };
+
+// function submenuBurger(items, topic) {
+//   items.forEach((item) => {
+//     item.addEventListener("click", function () {
+//       switch (item) {
+//         case items[0]:
+//           selectedSize = 12;
+//           break;
+//         case items[1]:
+//           selectedSize = 16;
+//           break;
+//         case items[2]:
+//           selectedSize = 20;
+//           break;
+//         case items[3]:
+//           selectedSize = 24;
+//           break;
+//       }
+//       setupSizeSelection(items);
+//       deleteCards();
+//       putCards(topic, selectedSize);
+//       findingPairs();
+//       document.getElementById("myModal").style.display = "none";
+//     });
+//   });
+// }
+
+// submenuBurger(sizeBurger, "coffee");
+// submenuBurger(sizeBurger, "building");
+// submenuBurger(sizeBurger, "fruit");
+// submenuBurger(sizeBurger, "plant");
+// submenuBurger(sizeBurger, "animal");
+// submenuBurger(sizeBurger, "travel");

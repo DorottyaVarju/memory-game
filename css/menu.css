@@ -35,12 +35,12 @@ li {
 #plant:hover,
 #animal:hover,
 #travel:hover,
-#coffeeBurger:hover,
-#buildingBurger:hover,
-#fruitBurger:hover,
-#plantBurger:hover,
-#animalBurger:hover,
-#travelBurger:hover {
+#coffee-burger:hover,
+#building-burger:hover,
+#fruit-burger:hover,
+#plant-burger:hover,
+#animal-burger:hover,
+#travel-burger:hover {
   background-color: rgba(42, 82, 91);
   color: white;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
