@@ -1,4 +1,4 @@
-const modal = document.getElementById("myModal");
+const modal = document.getElementById("burger-menu-modal");
 
 const icon = document.getElementsByClassName("burger-menu-icon")[0];
 

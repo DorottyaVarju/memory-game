@@ -56,31 +56,27 @@ a.burger-menu-icon:hover {
   cursor: pointer;
 }
 
-.burgerMenuItems {
+.burger-menu-items {
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
 .size-list {
   display: flex;
   flex-direction: row;
-  width: 70%;
-  margin: 0% auto;
+  justify-content: center;
   gap: 10px;
 }
 
-.sizeBurger {
+.burger-size {
   display: none;
-  border-radius: 20px;
 }
 
 @media only screen and (max-width: 1126px) {
   a.burger-menu-icon {
     display: block;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .sizeBurger:first-child {
-    margin-top: -10%;
   }
 }

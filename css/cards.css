@@ -6,6 +6,7 @@
 .row{
   display: flex;
   justify-content: center;
+  text-align: center;
   gap: 10px;
   padding-top: 10px;
 }
@@ -17,8 +18,8 @@
   border: 8px solid white;
   border-radius: 15px;
   position: relative;
-  width: 8.7vw;
-  height: 8.7vw;
+  width: 130px;
+  height: 130px;
   transform-style: preserve-3d;
   transform-origin: center right;
   transition: transform 0.65s;
@@ -27,8 +28,8 @@
 .foundCard {
   border: 0.5px solid darkblue;
   border-radius: 15px;
-  width: 8.7vw;
-  height: 8.7vw;
+  width: 130px;
+  height: 130px;
 }
 
 .card:hover {
@@ -51,8 +52,8 @@
 }
 
 .box {
-  height: 8.7vw;
-  width: 8.7vw;
+  height: 130px;
+  width: 130px;
   border-radius: 15px;
 }
 
@@ -97,61 +98,12 @@
 }
 
 @media only screen and (max-width: 1126px) {
-
-  .card,
-  .images {
-    border: 6px solid white;
-  }
-
-  .card,
-  .foundCard,
-  .box {
-    width: 17vw;
-    min-width: 74.5px;
-    height: 17vw;
-    min-height: 74.5px;
-  }
-
-  .images {
-    margin-top: -6px;
-    margin-left: 6px;
-  }
-
   .end {
     font-size: 4vw;
   }
 }
 
 @media only screen and (max-width: 576px) {
-  .card,
-  .box,
-  .images {
-    border-radius: 10px;
-  }
-
-  .card,
-  .images {
-    border: 3px solid white;
-  }
-
-  .card,
-  .foundCard,
-  .box {
-    width: 19vw;
-    min-width: 74px;
-    height: 19vw;
-    min-height: 74px;
-  }
-
-  .images {
-    margin-top: -3px;
-    margin-left: 3px;
-  }
-
-  .scene {
-    margin: 5px auto;
-  }
-
   .end {
     font-size: 22px;
   }

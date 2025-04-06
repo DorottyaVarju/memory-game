@@ -1,4 +1,4 @@
-const playingArea = document.getElementsByClassName("playingArea")[0];
+const playingArea = document.getElementsByClassName("playing-area")[0];
 
 let numbers;
 function randomizeNumbers(size) {
