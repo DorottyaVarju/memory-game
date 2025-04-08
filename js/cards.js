@@ -33,15 +33,15 @@ function putCards(topic, size) {
   } else {
     switch (numbers.length) {
       case 12:
-        num = 3;
+        num = 4;
         col = "col-4";
         break;
       case 16:
-        num = 3;
+        num = 4;
         col = "col-4";
         break;
       case 20:
-        num = 3;
+        num = 4;
         col = "col-4";
         break;
       case 24:
@@ -53,7 +53,7 @@ function putCards(topic, size) {
 
   for (j = 0; j < numbers.length / num; j++) {
     let row = document.createElement("div");
-    row.classList.add("row", "justify-content-center");
+    row.classList.add("row");
     playingArea.appendChild(row);
     let rows = Array.from(document.getElementsByClassName("row"));
     let k;

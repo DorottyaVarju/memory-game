@@ -70,7 +70,7 @@ function findingPairs() {
                 let end = document.createElement("p");
                 end.innerHTML =
                   "Congratulations!\n <span> You found all the pairs! </span>";
-                end.classList.add("end", "row", "justify-content-center");
+                end.classList.add("end", "row");
                 playingArea.appendChild(end);
               }, 2000);
             }

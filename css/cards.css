@@ -18,8 +18,10 @@
   border: 8px solid white;
   border-radius: 15px;
   position: relative;
-  width: 130px;
-  height: 130px;
+  width: 20vw;
+  height: 20vw;
+  max-width: 130px;
+  max-height: 130px;
   transform-style: preserve-3d;
   transform-origin: center right;
   transition: transform 0.65s;
@@ -28,8 +30,10 @@
 .foundCard {
   border: 0.5px solid darkblue;
   border-radius: 15px;
-  width: 130px;
-  height: 130px;
+  width: 20vw;
+  height: 20vw;
+  max-width: 130px;
+  max-height: 130px;
 }
 
 .card:hover {
@@ -52,8 +56,10 @@
 }
 
 .box {
-  height: 130px;
-  width: 130px;
+  height: 20vw;
+  width: 20vw;
+  max-width: 130px;
+  max-height: 130px;
   border-radius: 15px;
 }
 
