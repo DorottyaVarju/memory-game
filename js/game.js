@@ -58,21 +58,27 @@ function findingPairs() {
             cards = document.querySelectorAll(".card");
             pairs++;
             if (pairs == numbers.length / 2) {
-              let foundCards = Array.from(
-                document.querySelectorAll(".foundCard")
-              );
-
-              let scenes = document.querySelectorAll(".scene");
               setTimeout(() => {
-                scenes.forEach((scene) => {
-                  scene.classList.add("fade");
+                let rows = Array.from(
+                  document.querySelectorAll(".row")
+                );
+                rows.forEach((row) => {
+                  row.classList.add("fade");
                 });
-                let end = document.createElement("p");
-                end.innerHTML =
-                  "Congratulations!\n <span> You found all the pairs! </span>";
-                end.classList.add("end", "row");
-                playingArea.appendChild(end);
+                rows.forEach((row) => {
+                  row.remove();
+                });
               }, 2000);
+              setTimeout(() => {
+                let h1 = document.createElement("h1");
+                let h2 = document.createElement("h2");
+                h1.innerHTML = "Congratulations!";
+                h2.innerHTML = "You found all the pairs!";
+                h1.classList.add("end", "row");
+                h2.classList.add("end", "row");
+                playingArea.appendChild(h1);
+                playingArea.appendChild(h2);
+              }, 2500);
             }
           }
         });

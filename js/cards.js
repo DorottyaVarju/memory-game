@@ -14,7 +14,6 @@ function putCards(topic, size) {
   randomizeNumbers(size);
   let j;
   let num;
-  let col = "col-2";
   if (screen.width > screen.height && screen.width > 992) {
     switch (numbers.length) {
       case 12:
@@ -31,24 +30,7 @@ function putCards(topic, size) {
         break;
     }
   } else {
-    switch (numbers.length) {
-      case 12:
-        num = 4;
-        col = "col-4";
-        break;
-      case 16:
-        num = 4;
-        col = "col-4";
-        break;
-      case 20:
-        num = 4;
-        col = "col-4";
-        break;
-      case 24:
-        num = 4;
-        col = "col-3";
-        break;
-    }
+    num = 4;
   }
 
   for (j = 0; j < numbers.length / num; j++) {
@@ -59,7 +41,7 @@ function putCards(topic, size) {
     let k;
     for (k = 0; k < num; k++) {
       let scene = document.createElement("div");
-      scene.classList.add(col, "scene", "scene--card");
+      scene.classList.add("scene", "scene--card");
       rows[j].appendChild(scene);
     }
   }
