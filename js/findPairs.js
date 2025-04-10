@@ -2,62 +2,40 @@ const findingPairs = () => {
   let cards = document.querySelectorAll(".card");
   let numberOfClickedCards = 0;
   let allCardsActive = true;
-  let pairs = 0;
+  let numberOfFoundPairs = 0;
 
   [...cards].forEach((card) => {
     card.addEventListener("click", function () {
       if (allCardsActive == true) {
         numberOfClickedCards++;
         card.classList.toggle("is-flipped");
-        Pairs();
+        checkForPair();
       }
     });
   });
 
-  const Pairs = () => {
+  const checkForPair = () => {
     let isFlipped = Array.from(document.querySelectorAll(".is-flipped"));
     if (isFlipped.length != 0) {
       if (numberOfClickedCards == 2) {
         allCardsActive = false;
-        let foundPairs = [];
-        let srcOfImgs = [];
+        let pairsToCheck = [];
+        let srcOfpairsToCheck = [];
 
         isFlipped.forEach((element) => {
           let nameOfImg = element.lastElementChild.firstChild;
+          pairsToCheck.push(nameOfImg);
+          srcOfpairsToCheck.push(nameOfImg.getAttribute("src"));
 
-          foundPairs.push(nameOfImg);
-          srcOfImgs.push(nameOfImg.getAttribute("src"));
-
-          if (srcOfImgs[0] != srcOfImgs[1]) {
+          if (srcOfpairsToCheck[0] != srcOfpairsToCheck[1]) {
             setTimeout(() => {
               element.classList.toggle("is-flipped");
               allCardsActive = true;
             }, 1100);
           } else {
-            setTimeout(() => {
-              foundPairs[0].parentNode.parentNode.classList.remove(
-                "is-flipped"
-              );
-              foundPairs[0].parentNode.parentNode.classList.remove("card");
-              let div1 = document.createElement("div");
-              div1.classList.add("foundCard");
-              foundPairs[0].parentNode.parentNode.parentNode.appendChild(div1);
-              foundPairs[0].parentNode.parentNode.remove();
-            }, 1100);
-            setTimeout(() => {
-              foundPairs[1].parentNode.parentNode.classList.remove(
-                "is-flipped"
-              );
-              foundPairs[1].parentNode.parentNode.classList.remove("card");
-              let div2 = document.createElement("div");
-              div2.classList.add("foundCard");
-              foundPairs[1].parentNode.parentNode.parentNode.appendChild(div2);
-              foundPairs[1].parentNode.parentNode.remove();
-              allCardsActive = true;
-            }, 1100);
-            cards = document.querySelectorAll(".card");
-            pairs++;
-            if (pairs == randomNumbers.length / 2) {
+            handleFoundPair(pairsToCheck);
+            numberOfFoundPairs++;
+            if (numberOfFoundPairs == randomNumbers.length / 2) {
               handleGameOver();
             }
           }
@@ -70,11 +48,23 @@ const findingPairs = () => {
   }
 }
 
+const handleFoundPair = (foundPairs) => {
+  setTimeout(() => {
+    foundPairs.forEach((foundPair) => {
+      foundPair.parentNode.parentNode.classList.remove("is-flipped");
+      foundPair.parentNode.parentNode.classList.remove("card");
+      let div1 = document.createElement("div");
+      div1.classList.add("foundCard");
+      foundPair.parentNode.parentNode.parentNode.appendChild(div1);
+      foundPair.parentNode.parentNode.remove();
+    })
+    allCardsActive = true;
+  }, 1100);
+}
+
 const handleGameOver = () => {
   let rows = Array.from(document.querySelectorAll(".row"));
-
   rows.forEach((row) => row.classList.add("fade"));
-
   setTimeout(() => {
     rows.forEach((row) => row.remove());
     showGameOverMessage();
