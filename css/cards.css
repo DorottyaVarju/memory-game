@@ -77,13 +77,13 @@
 
 .fade {
   z-index: -1;
-  animation: fadeOut 2s ease-out;
+  animation: fadeOut 1s ease-out;
 }
 
 .end {
   text-align: center;
   color: #31525b;
-  animation: fadeIn 5s ease-out;
+  animation: fadeIn 3s ease-out;
 }
 
 @keyframes fadeOut {

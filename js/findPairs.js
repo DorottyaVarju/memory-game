@@ -64,11 +64,13 @@ const handleFoundPair = (foundPairs) => {
 
 const handleGameOver = () => {
   let rows = Array.from(document.querySelectorAll(".row"));
+  setTimeout(() => {
   rows.forEach((row) => row.classList.add("fade"));
+  }, 1500);
   setTimeout(() => {
     rows.forEach((row) => row.remove());
     showMessage("Congratulations!", "You found all the pairs!", true);
-  }, 2000);
+  }, 2500);
 }
 
 const showMessage = (innerHtmlH1, innertHtmlH2, isGameEnded) => {
