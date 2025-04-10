@@ -1,11 +1,11 @@
 const sizes = [12, 16, 20, 24];
 const sizeElements = Array.from(document.getElementsByClassName("size"));
 const topics = ['coffee', 'building', 'fruit', 'plant', 'animal', 'travel'];
+const burgerMenuIcon = document.getElementsByClassName("burger-menu-icon")[0];
+const computedStyleBurgerMenuIcon = window.getComputedStyle(burgerMenuIcon);
 const topicsBurger = topics.map((topic) => {
   return topic + "-burger";
 });
-const burgerMenuIcon = document.getElementsByClassName("burger-menu-icon")[0];
-const computedStyleBurgerMenuIcon = window.getComputedStyle(burgerMenuIcon);
 let selectedSize, selectedTopic, burgerSizeElements;
 
 const clickOnSize = (sizeElement, sizeElements) => {
@@ -79,7 +79,7 @@ const handleSizeSelection = (sizeElements) => {
       selectedSize = sizes[index];
       setupSizeSelection(sizeElements);
       deleteCards();
-      putCards(selectedTopic, selectedSize);
+      createCards(selectedTopic, selectedSize);
       findingPairs();
     });
   });

@@ -72,43 +72,29 @@
 
 .fade {
   z-index: -1;
-  animation: fade 2s ease-out;
-}
-
-@keyframes fade {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  animation: fadeOut 2s ease-out;
 }
 
 .end {
   text-align: center;
   color: #31525b;
-  animation: end 5s ease-out;
+  animation: fadeIn 5s ease-out;
 }
 
-@keyframes end {
+@keyframes fadeOut {
   from {
-    font-size: 0.2vw;
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
     opacity: 0;
   }
   to {
-    font-size: 1.5vw;
     opacity: 1;
-  }
-}
-
-@media only screen and (max-width: 1126px) {
-  .end {
-    font-size: 4vw;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-  .end {
-    font-size: 22px;
   }
 }

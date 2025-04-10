@@ -57,14 +57,19 @@ function findingPairs() {
             }, 1100);
             cards = document.querySelectorAll(".card");
             pairs++;
-            if (pairs == numbers.length / 2) {
+            if (pairs == randomNumbers.length / 2) {
+              let rows = Array.from(
+                document.querySelectorAll(".row")
+              );
+              rows.forEach((row) => {
+                row.classList.add("fade");
+              });
               setTimeout(() => {
-                let rows = Array.from(
-                  document.querySelectorAll(".row")
-                );
                 rows.forEach((row) => {
                   row.classList.add("fade");
                 });
+              }, 1500);
+              setTimeout(() => {
                 rows.forEach((row) => {
                   row.remove();
                 });

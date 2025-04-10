@@ -77,11 +77,11 @@ h2 {
 }
 
 h1 {
-  font-size: 3vw;
+  font-size: clamp(20px, 3vw, 48px);
 }
 
 h2 {
-  font-size: 1.5vw;
+  font-size: clamp(10px, 1.5vw, 24px);
 }
 
 .back {
@@ -105,14 +105,6 @@ h2 {
     float: none;
   }
 
-  h1 {
-    font-size: 4vw;
-  }
-
-  h2 {
-    font-size: 2.5vw;
-  }
-
   .back {
     border-radius: 2px;
   }
@@ -126,14 +118,6 @@ h2 {
 }
 
 @media only screen and (max-width: 576px) {
-
-  h1 {
-    font-size: 22px;
-  }
-
-  h2 {
-    font-size: 12px;
-  }
 
   .back {
     border-radius: 2px;
