@@ -67,17 +67,21 @@ const handleGameOver = () => {
   rows.forEach((row) => row.classList.add("fade"));
   setTimeout(() => {
     rows.forEach((row) => row.remove());
-    showGameOverMessage();
+    showMessage("Congratulations!", "You found all the pairs!", true);
   }, 2000);
 }
 
-const showGameOverMessage = () => {
+const showMessage = (innerHtmlH1, innertHtmlH2, isGameEnded) => {
   let h1 = document.createElement("h1");
   let h2 = document.createElement("h2");
-  h1.innerHTML = "Congratulations!";
-  h2.innerHTML = "You found all the pairs!";
-  h1.classList.add("end", "row");
-  h2.classList.add("end", "row");
+  h1.innerHTML = innerHtmlH1;
+  h2.innerHTML = innertHtmlH2;
+  h1.classList.add("row");
+  h2.classList.add("row");
+  if(isGameEnded){
+    h1.classList.add("end");
+    h2.classList.add("end");
+  }
   playingArea.appendChild(h1);
   playingArea.appendChild(h2);
 }

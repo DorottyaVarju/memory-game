@@ -45,6 +45,9 @@ const handleTopicSelection = (topics) => {
     topicElement.addEventListener("click", function () {
       let otherTopics = topics.filter((_, i) => i !== index);
       deleteCards();
+      if (computedStyleBurgerMenuIcon.display === "none") {
+        showMessage("Great choice of topic!", "Choose the number of cards, as well!", false);
+      }
       topicElement.classList.add("selected");
       topics.forEach((topic) => {
         const topicElement = document.getElementById(topic);

@@ -75,9 +75,9 @@ const deleteCards = () => {
   const elementsToDelete = ["images", "row", "scene", "card", "card__face", "end"];
 
   elementsToDelete.forEach((className) => {
-    const elements = document.getElementsByClassName(className);
-    while (elements.length > 0) {
-      elements[0].remove();
-    }
+      const elements = document.getElementsByClassName(className);
+      while (elements.length > 0) {
+        elements[0].remove();
+      }
   });
 }

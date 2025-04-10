@@ -6,6 +6,7 @@ const span = document.getElementsByClassName("close")[0];
 
 icon.onclick = function () {
   modal.style.display = "flex";
+  deleteCards();
 };
 
 span.onclick = function () {
