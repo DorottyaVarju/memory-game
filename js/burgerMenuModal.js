@@ -5,7 +5,7 @@ const icon = document.getElementsByClassName("burger-menu-icon")[0];
 const span = document.getElementsByClassName("close")[0];
 
 icon.onclick = function () {
-  modal.style.display = "block";
+  modal.style.display = "flex";
 };
 
 span.onclick = function () {

@@ -2,6 +2,7 @@
   box-sizing: border-box;
   text-transform: uppercase;
   letter-spacing: 5px;
+  padding: 0px;
 }
 
 html {
@@ -70,61 +71,12 @@ footer {
 
 h1,
 h2 {
-  padding-right: 20px !important;
   color: #31525b;
   display: flex;
   justify-content: center;
-}
-
-h1 {
   font-size: clamp(20px, 3vw, 48px);
 }
 
 h2 {
   font-size: clamp(10px, 1.5vw, 24px);
-}
-
-.back {
-  height: 7vw;
-  width: 7vw;
-  border-radius: 10px;
-}
-
-@media only screen and (max-width: 1070px) {
-  h1,
-  h2 {
-    padding-right: 100px !important;
-  }
-}
-
-@media only screen and (max-width: 1126px) {
-
-  h1,
-  h2 {
-    padding-right: 0px !important;
-    float: none;
-  }
-
-  .back {
-    border-radius: 2px;
-  }
-
-  .back {
-    width: 20vw;
-    height: 20vw;
-    max-width: 130px;
-    max-height: 130px;
-  }
-}
-
-@media only screen and (max-width: 576px) {
-
-  .back {
-    border-radius: 2px;
-  }
-
-  .back {
-    width: 65px;
-    height: 65px;
-  }
 }

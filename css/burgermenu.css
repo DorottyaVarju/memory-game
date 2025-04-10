@@ -20,6 +20,8 @@ a.burger-menu-icon:hover {
 
 .modal {
   display: none;
+  justify-content: center;
+  align-items: center;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -33,7 +35,6 @@ a.burger-menu-icon:hover {
 
 .modal-content {
   background-color: transparent;
-  margin: 5% auto; /* 15% from the top and centered */
   padding: 20px;
   border: none;
   width: 70%;
@@ -64,15 +65,21 @@ a.burger-menu-icon:hover {
   align-items: center;
 }
 
+.burger-menu-items > li, .burger-size {
+  width: 70%;
+  font-size: 12px;
+  min-width: 202px;
+}
+
 .size-list {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
   gap: 10px;
 }
 
 .burger-size {
   display: none;
+  font-size: 10px;
+  min-width: 60px;
 }
 
 @media only screen and (max-width: 1126px) {

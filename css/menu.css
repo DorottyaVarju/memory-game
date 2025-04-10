@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 20px 0px 0px;
+  padding: 10px 0px 0px;
   margin: 0px 2%;
 }
 
@@ -60,19 +60,11 @@ span {
   border-radius: 20px;
 }
 
-#burgerMenu {
+#burger-menu {
   padding-left: 3px;
 }
 
 @media only screen and (max-width: 1126px) {
-  ul {
-    padding-left: 0px;
-  }
-
-  li {
-    font-size: 12px;
-    width: 70%;
-  }
 
   span {
     font-size: 20px;
@@ -85,12 +77,6 @@ span {
 
 @media only screen and (max-width: 576px) {
   li {
-    font-size: 12px;
-    padding: 10px;
     width: 100%;
-  }
-
-  span {
-    font-size: 20px;
   }
 }
