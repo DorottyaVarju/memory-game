@@ -1,4 +1,4 @@
-function findingPairs() {
+const findingPairs = () => {
   let cards = document.querySelectorAll(".card");
   let numberOfClickedCards = 0;
   let allCardsActive = true;
@@ -14,7 +14,7 @@ function findingPairs() {
     });
   });
 
-  function Pairs() {
+  const Pairs = () => {
     let isFlipped = Array.from(document.querySelectorAll(".is-flipped"));
     if (isFlipped.length != 0) {
       if (numberOfClickedCards == 2) {
@@ -58,32 +58,7 @@ function findingPairs() {
             cards = document.querySelectorAll(".card");
             pairs++;
             if (pairs == randomNumbers.length / 2) {
-              let rows = Array.from(
-                document.querySelectorAll(".row")
-              );
-              rows.forEach((row) => {
-                row.classList.add("fade");
-              });
-              setTimeout(() => {
-                rows.forEach((row) => {
-                  row.classList.add("fade");
-                });
-              }, 1500);
-              setTimeout(() => {
-                rows.forEach((row) => {
-                  row.remove();
-                });
-              }, 2000);
-              setTimeout(() => {
-                let h1 = document.createElement("h1");
-                let h2 = document.createElement("h2");
-                h1.innerHTML = "Congratulations!";
-                h2.innerHTML = "You found all the pairs!";
-                h1.classList.add("end", "row");
-                h2.classList.add("end", "row");
-                playingArea.appendChild(h1);
-                playingArea.appendChild(h2);
-              }, 2500);
+              handleGameOver();
             }
           }
         });
@@ -93,4 +68,26 @@ function findingPairs() {
       numberOfClickedCards = 0;
     }
   }
+}
+
+const handleGameOver = () => {
+  let rows = Array.from(document.querySelectorAll(".row"));
+
+  rows.forEach((row) => row.classList.add("fade"));
+
+  setTimeout(() => {
+    rows.forEach((row) => row.remove());
+    showGameOverMessage();
+  }, 2000);
+}
+
+const showGameOverMessage = () => {
+  let h1 = document.createElement("h1");
+  let h2 = document.createElement("h2");
+  h1.innerHTML = "Congratulations!";
+  h2.innerHTML = "You found all the pairs!";
+  h1.classList.add("end", "row");
+  h2.classList.add("end", "row");
+  playingArea.appendChild(h1);
+  playingArea.appendChild(h2);
 }
