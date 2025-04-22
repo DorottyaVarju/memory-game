@@ -8,7 +8,7 @@
   justify-content: center;
   text-align: center;
   gap: 10px;
-  padding-top: 10px;
+  margin-top: 10px;
 }
 
 .card {
@@ -18,8 +18,8 @@
   border: 8px solid white;
   border-radius: 15px;
   position: relative;
-  width: 20vw;
-  height: 20vw;
+  width: 14vmin;
+  height: 14vmin;
   max-width: 130px;
   max-height: 130px;
   min-width: 64px;
@@ -32,8 +32,8 @@
 .foundCard {
   border: 0.5px solid darkblue;
   border-radius: 15px;
-  width: 20vw;
-  height: 20vw;
+  width: 14vmin;
+  height: 14vmin;
   max-width: 130px;
   max-height: 130px;
   min-width: 64px;
@@ -59,8 +59,8 @@
 }
 
 .box {
-  height: 20vw;
-  width: 20vw;
+  width: 14vmin;
+  height: 14vmin;
   max-width: 130px;
   max-height: 130px;
   min-width: 64px;
